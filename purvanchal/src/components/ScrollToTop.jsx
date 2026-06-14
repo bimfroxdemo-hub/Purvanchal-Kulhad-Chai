@@ -1,0 +1,18 @@
+// components/PageTop.jsx
+
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
+export default function PageTop() {
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+
+    // INSTANT TOP
+    window.scrollTo(0, 0);
+
+  }, [pathname]);
+
+  return null;
+}
