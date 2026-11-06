@@ -1,352 +1,282 @@
-import { motion } from "framer-motion";
-import chaiBoy from "../assets/logo/tandoori.png"
+import {
+  Award,
+  Coffee,
+  Eye,
+  Handshake,
+  HeartHandshake,
+  IndianRupee,
+  Store,
+  Target,
+} from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
-export default function About() {
-    const navigate = useNavigate();
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
+import aboutImage from "../assets/logo/Purvanchal Kulhad Chai.png";
 
-const item = {
-  hidden: { opacity: 0, y: 40 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+const storyPoints = [
+  {
+    icon: Coffee,
+    title: "Authentic Taste",
+    description: "Traditional Gud Ki Chai loved by all age groups.",
   },
-};
+  {
+    icon: Store,
+    title: "Simple Operations",
+    description: "No complex systems. Easy to manage daily business.",
+  },
+  {
+    icon: Handshake,
+    title: "Franchise First",
+    description: "Zero royalty and full support for long-term success.",
+  },
+];
 
-return (
+const purposePoints = [
+  {
+    icon: Target,
+    title: "Our Mission",
+    description:
+      "To bring authentic traditional chai to every corner, maintaining quality, affordability, and a memorable experience in every cup.",
+  },
+  {
+    icon: Eye,
+    title: "Our Vision",
+    description:
+      "To build a trusted Indian chai brand that connects communities, celebrates tradition, and creates business opportunities through a growing franchise network.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Our Values",
+    description:
+      "We stand for authenticity, consistent quality, customer satisfaction, transparency, and strong relationships with our customers and franchise partners.",
+  },
+];
+
+export default function AboutUs() {
+  const navigate = useNavigate();
+
+  return (
     <>
-<Helmet>
-  <title>About Purvanchal Kulhad Chai | Authentic Purvanchal Tea Brand in Surat</title>
-
-  <meta
-    name="description"
-    content="Purvanchal Kulhad Chai brings authentic Purvanchal taste of Uttar Pradesh to Surat. Traditional kulhad chai, mitti ki khushboo, and desi chai experience with premium quality and hospitality."
-  />
-
-  <meta
-    name="keywords"
-    content="kulhad chai surat, purvanchal chai, desi chai brand, UP chai, traditional tea india, kulhad tea shop surat, chai franchise india"
-  />
-
- <meta name="author" content="Raghunath Chaurasiya" />
-
-  {/* Open Graph */}
-  <meta property="og:title" content="About Purvanchal Kulhad Chai" />
-  <meta
-    property="og:description"
-    content="From Purvanchal (UP) to Surat – experience authentic kulhad chai with tradition, taste and culture."
-  />
-  <meta property="og:type" content="website" />
-
-  {/* IMPORTANT: location SEO */}
-  <meta
-    name="geo.placename"
-    content="Bhestan, Surat, Gujarat"
-  />
-</Helmet>
-      <section className="relative h-[70vh] flex items-center justify-center text-center px-6 overflow-hidden">
-
-        {/* BG IMAGE */}
-        <img
-          src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1600&auto=format&fit=crop"
-          alt="contact"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        {/* OVERLAY */}
-        <div className="absolute inset-0 bg-black/55"></div>
-
-        {/* CONTENT */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="relative z-10"
-        >
-          <p className="uppercase tracking-[6px] text-sm text-[#d8c9b1] mb-5">
-            Purvanchal Kulhad Chai
-          </p>
-          <h1 className="text-5xl md:text-7xl font-serif text-white leading-tight">
-            Our Story,
-            <br />
-            Our Tradition
-          </h1>
-        </motion.div>
-
-        {/* Bottom Wave */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none">
-          <svg
-            viewBox="0 0 1440 150"
-            className="block w-full h-[70px] sm:h-[90px] md:h-[110px] lg:h-[130px]"
-            preserveAspectRatio="xMidYMax meet"
-          >
-            <path
-              fill="#F8F5EF"
-              d="M0,100C180,50,360,150,540,110C720,70,900,20,1080,50C1260,80,1350,120,1440,90V150H0Z"
-            />
-          </svg>
-        </div>
-      </section>
-
-      {/*==============================================about=============================================== */}
-      <section className="py-24 bg-[#f7f3ee]">
-        <div className="max-w-7xl mx-auto px-6">
-
-          <div className="grid lg:grid-cols-[1fr_1.2fr_1fr] gap-6 items-stretch">
-
-            {/* IMAGE */}
-            <div className="h-full">
-              <img
-                src="https://i.pinimg.com/736x/a2/b5/03/a2b5035d5b9bfb12492ab65bb6e875d5.jpg"
-                alt="Purvanchal Tea"
-                className="w-full h-full min-h-[650px] object-contain mix-blend-multiply"
-              />
-            </div>
-
-            {/* ABOUT BOX */}
-            <div className="bg-white  p-10 shadow-sm flex flex-col justify-center">
-
-              <span className="uppercase tracking-[4px] text-[#8b5e34] text-sm">
-                About Purvanchal Tea
+      {/* About Intro */}
+      <section className="w-full bg-white px-4 py-12 sm:px-6 sm:py-16 md:px-8 lg:py-24">
+        <div className="mx-auto grid max-w-[1150px] grid-cols-1 items-center gap-10 md:grid-cols-2 lg:gap-20">
+          {/* Left Content */}
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#FF981B]/15 px-4 py-2">
+              <span className="h-2 w-2 rounded-full bg-[#FF981B]" />
+              <span className="font-poppins text-xs font-semibold tracking-wide text-[#4A0707] sm:text-sm">
+                About Purvanchal Kulhad Chai
               </span>
-
-              <h2 className="text-4xl font-bold text-[#2b1d15] mt-4">
-                UP Ki Shaan, Ab Surat Mein
-              </h2>
-
-              <p className="mt-6 text-gray-600 leading-8">
-                Purvanchal Kulhad Chai mein har chuski Purvanchal ki parampara aur
-                mitti ki mehak ka ehsaas dilati hai. Fresh chai, authentic masale aur
-                traditional kulhad ka sangam har cup ko khaas banata hai.
-              </p>
-
-              <p className="mt-4 text-gray-600 leading-8">
-                Chahe aap Purvanchal se ho ya chai ke asli swad ke shaukeen, yahan har
-                kulhad mein milega desi apnapan, premium quality aur ek yaadgaar chai
-                experience.
-              </p>
             </div>
 
-            {/* RIGHT CARDS */}
-            <div className="grid grid-cols-2 gap-5">
+            <h1 className="mt-5 font-serif text-3xl font-bold leading-tight text-[#4A0707] sm:text-4xl md:text-5xl">
+              Brewing Trust with
+              <span className="mt-1 block text-[#FF981B]">Gud Ki Chai</span>
+            </h1>
 
-              <div className="bg-white  p-6 shadow-sm">
-                <div className="text-3xl mb-3">🍃</div>
-                <h3 className="font-bold text-[#2b1d15]">
-                  Natural Leaves
-                </h3>
-                <p className="text-gray-600 mt-3 text-sm leading-7">
-                  Carefully sourced premium tea leaves.
+            <p className="mt-5 max-w-xl font-poppins text-sm font-medium leading-7 text-[#705B4A] sm:text-base sm:leading-8">
+              Purvanchal Kulhad Chai is a fast-growing Indian chai brand built
+              on quality, affordability, and a strong franchise-first approach.
+              From small towns to big cities, we help entrepreneurs build
+              profitable chai businesses with confidence.
+            </p>
+
+            {/* Stats */}
+            <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-4">
+              <div className="rounded-xl border border-[#4A0707]/10 bg-[#FFF9F1] p-3 text-center sm:p-4">
+                <Coffee
+                  size={20}
+                  className="mx-auto text-[#FF981B]"
+                  strokeWidth={2.4}
+                />
+                <p className="mt-2 font-serif text-lg font-bold text-[#4A0707] sm:text-xl">
+                  Since 2021
                 </p>
-              </div>
-
-              <div className="bg-white  p-6 shadow-sm">
-                <div className="text-3xl mb-3">☕</div>
-                <h3 className="font-bold text-[#2b1d15]">
-                  Rich Aroma
-                </h3>
-                <p className="text-gray-600 mt-3 text-sm leading-7">
-                  Authentic flavour and refreshing taste.
-                </p>
-              </div>
-
-              <div className="bg-white  p-6 shadow-sm">
-                <div className="text-3xl mb-3">🌱</div>
-                <h3 className="font-bold text-[#2b1d15]">
-                  Sustainability
-                </h3>
-                <p className="text-gray-600 mt-3 text-sm leading-7">
-                  Responsible sourcing and production.
-                </p>
-              </div>
-
-              <div className="bg-white  p-6 shadow-sm">
-                <div className="text-3xl mb-3">❤️</div>
-                <h3 className="font-bold text-[#2b1d15]">
+                <p className="mt-1 font-poppins text-[10px] font-medium text-[#705B4A] sm:text-xs">
                   Trusted Brand
-                </h3>
-                <p className="text-gray-600 mt-3 text-sm leading-7">
-                  Loved by tea enthusiasts across India.
                 </p>
               </div>
 
+              <div className="rounded-xl border border-[#4A0707]/10 bg-[#FFF9F1] p-3 text-center sm:p-4">
+                <Store
+                  size={20}
+                  className="mx-auto text-[#FF981B]"
+                  strokeWidth={2.4}
+                />
+                <p className="mt-2 font-serif text-lg font-bold text-[#4A0707] sm:text-xl">
+                  120+
+                </p>
+                <p className="mt-1 font-poppins text-[10px] font-medium text-[#705B4A] sm:text-xs">
+                  Outlets
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-[#4A0707]/10 bg-[#FFF9F1] p-3 text-center sm:p-4">
+                <IndianRupee
+                  size={20}
+                  className="mx-auto text-[#FF981B]"
+                  strokeWidth={2.4}
+                />
+                <p className="mt-2 font-serif text-lg font-bold text-[#4A0707] sm:text-xl">
+                  Zero
+                </p>
+                <p className="mt-1 font-poppins text-[10px] font-medium text-[#705B4A] sm:text-xs">
+                  Royalty
+                </p>
+              </div>
             </div>
 
+            <button
+              type="button"
+              onClick={() => navigate("/franchise")}
+              className="mt-8 inline-flex min-h-[46px] items-center justify-center rounded-full bg-[#FF981B] px-7 py-3 font-poppins text-sm font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#E9870C] hover:shadow-xl active:translate-y-0"
+            >
+              Explore Franchise Opportunity
+            </button>
           </div>
 
-        </div>
-      </section>
-
-      {/*====================vison & mision===============================*/}
-
-      <section className="bg-[#f8f8f8] py-16 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-
-            {/* LEFT CONTENT */}
-            <motion.div
-              initial={{ opacity: 0, x: -80 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <p className="text-[#8b7b6a] text-base tracking-wide mb-2 uppercase">
-                Our Story, Our Passion for Chai
-              </p>
-
-              <h2 className="text-3xl md:text-5xl font-bold text-[#2d1c12] leading-tight mb-12">
-                A Community Built <br /> On Kulhad Chai
-              </h2>
-
-              {/* Vision */}
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="flex gap-5 pb-8 border-b border-gray-300"
-              >
-                <div className="w-14 h-14 rounded-full border-2 border-[#b77b4b] flex items-center justify-center text-2xl shrink-0">
-                  ☕
-                </div>
-
-                <div>
-                  <h3 className="text-2xl font-semibold text-[#2d1c12] mb-3">
-                    Our Vision
-                  </h3>
-
-                  <p className="text-[17px] text-gray-600 leading-8">
-                    Purvanchal ki asli kulhad chai ko har ghar aur har shehar
-                    tak pahunchana, jahan har sip mitti ki khushboo aur
-                    apnapan ka ehsaas dilaye.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Mission */}
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="flex gap-5 pt-8"
-              >
-                <div className="w-14 h-14 rounded-full border-2 border-[#b77b4b] flex items-center justify-center text-2xl shrink-0">
-                  🏺
-                </div>
-
-                <div>
-                  <h3 className="text-2xl font-semibold text-[#2d1c12] mb-3">
-                    Our Mission
-                  </h3>
-
-                  <p className="text-[17px] text-gray-600 leading-8">
-                    Fresh kulhad chai, premium ingredients aur Purvanchali
-                    mehmaan nawazi ke saath har customer ko ek yaadgaar chai
-                    experience dena aur traditional chai culture ko aage
-                    badhana.
-                  </p>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* RIGHT IMAGE */}
-            <motion.div
-              initial={{ opacity: 0, x: 80, scale: 0.9 }}
-              whileInView={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8 }}
-              className="flex justify-center"
-            >
+          {/* Right Full Image Box */}
+          <div className="relative">
+            <div className="relative h-[320px] overflow-hidden rounded-2xl border border-[#FF981B]/25 shadow-xl sm:h-[400px] md:h-[460px]">
               <img
-                src={chaiBoy}
+                src={aboutImage}
                 alt="Purvanchal Kulhad Chai"
-                className="w-full max-w-[480px] object-contain"
+                className="absolute inset-0 h-full w-full object-cover object-center"
+                loading="lazy"
               />
-            </motion.div>
 
+              {/* Dark overlay */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#4A0707]/85 via-[#4A0707]/20 to-transparent" />
+
+              {/* Image content */}
+              <div className="absolute bottom-5 left-5 right-5 rounded-xl border border-white/10 bg-[#4A0707]/90 p-4 backdrop-blur-sm sm:bottom-6 sm:left-6 sm:right-auto sm:max-w-[280px]">
+                <p className="font-poppins text-xs font-bold uppercase tracking-[0.16em] text-[#FF981B]">
+                  Purvanchal Kulhad Chai
+                </p>
+                <p className="mt-1 font-poppins text-sm font-medium text-white">
+                  Authentic Taste. Honest Business.
+                </p>
+              </div>
+            </div>
+
+            <div className="absolute -right-3 -top-3 hidden h-24 w-24 rounded-full border-2 border-[#FF981B]/40 lg:block" />
           </div>
         </div>
       </section>
 
-      {/* FRANCHISE CTA */}
-     <section className="relative bg-[#F8F5EF] py-20 px-6 overflow-hidden">
+      {/* Our Story */}
+      <section className="w-full bg-[#FFF9F1] px-4 py-12 sm:px-6 sm:py-16 md:px-8 lg:py-24">
+        <div className="mx-auto max-w-[1150px]">
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#FF981B]/15 px-4 py-2">
+              <Coffee size={16} className="text-[#FF981B]" />
+              <span className="font-poppins text-xs font-semibold tracking-wide text-[#4A0707] sm:text-sm">
+                Our Story
+              </span>
+            </div>
 
-      {/* Background Blur */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[450px] h-[450px] bg-[#9c5a28]/10 blur-[120px] rounded-full"></div>
+            <h2 className="mt-5 font-serif text-3xl font-bold leading-tight text-[#4A0707] sm:text-4xl md:text-5xl">
+              Sip the Tradition, Join the Journey
+              <span className="mt-1 block text-[#FF981B]">
+                A Business Built on Trust
+              </span>
+            </h2>
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.3 }}
-        className="relative max-w-5xl mx-auto text-center"
-      >
+            <p className="mt-5 font-poppins text-sm font-medium leading-7 text-[#705B4A] sm:text-base sm:leading-8">
+              Purvanchal Kulhad Chai brings authentic Indian chai at affordable prices while creating business opportunities for aspiring entrepreneurs through a trusted and affordable franchise model.
+            </p>
 
-        {/* Heading */}
-        <motion.h2
-          variants={item}
-          className="text-3xl md:text-5xl font-bold text-[#2d1c12] leading-tight"
-        >
-          Start Your Own{" "}
-          <span className="text-[#9c5a28]">Kulhad Chai Franchise</span>
-        </motion.h2>
+            <p className="mt-4 font-poppins text-sm font-medium leading-7 text-[#705B4A] sm:text-base sm:leading-8">
+              Today, our brand stands for honesty, simplicity, and a franchise
+              model that actually works on the ground.
+            </p>
+          </div>
 
-        {/* Description */}
-        <motion.p
-          variants={item}
-          className="mt-6 text-gray-600 text-base md:text-lg max-w-2xl mx-auto"
-        >
-          Apna business start karo hamare brand ke saath.
-          Low investment, high support aur strong brand value ke saath apna outlet kholne ka mauka.
-        </motion.p>
+          <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-12 sm:grid-cols-3 sm:gap-6 lg:gap-8">
+            {storyPoints.map(({ icon: Icon, title, description }) => (
+              <article
+                key={title}
+                className="group rounded-xl border border-[#4A0707]/10 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#FF981B]/50 hover:shadow-lg sm:p-7"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#FF981B]/15 transition-colors duration-300 group-hover:bg-[#FF981B]">
+                  <Icon
+                    size={23}
+                    className="text-[#FF981B] transition-colors duration-300 group-hover:text-white"
+                    strokeWidth={2.2}
+                  />
+                </div>
 
-        {/* Stats */}
-        <motion.div
-          variants={container}
-          className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto text-center"
-        >
-          <motion.div variants={item}>
-            <h3 className="text-2xl font-bold text-[#9c5a28]">₹4L+</h3>
-            <p className="text-gray-600 text-sm">Starting Investment</p>
-          </motion.div>
+                <h3 className="mt-5 font-serif text-xl font-bold text-[#4A0707] sm:text-2xl">
+                  {title}
+                </h3>
 
-          <motion.div variants={item}>
-            <h3 className="text-2xl font-bold text-[#9c5a28]">100%</h3>
-            <p className="text-gray-600 text-sm">Support Provided</p>
-          </motion.div>
+                <p className="mt-3 font-poppins text-sm font-medium leading-7 text-[#705B4A]">
+                  {description}
+                </p>
 
-          <motion.div variants={item}>
-            <h3 className="text-2xl font-bold text-[#9c5a28]">Fast</h3>
-            <p className="text-gray-600 text-sm">Setup Process</p>
-          </motion.div>
-        </motion.div>
+                <div className="mt-5 h-1 w-10 bg-[#FF981B] transition-all duration-300 group-hover:w-full" />
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-        {/* Button */}
-        <motion.div variants={item} className="mt-10">
-          <button
-            onClick={() => navigate("/franchise")}
-            className="px-10 py-3 bg-[#9c5a28] text-white rounded-full font-medium hover:scale-105 transition"
-          >
-            Apply for Franchise
-          </button>
-        </motion.div>
+      {/* Purpose Section */}
+      <section className="w-full bg-white px-4 py-12 sm:px-6 sm:py-16 md:px-8 lg:py-24">
+        <div className="mx-auto max-w-[1150px]">
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#4A0707] px-4 py-2">
+              <Award size={16} className="text-[#FF981B]" />
+              <span className="font-poppins text-xs font-semibold tracking-wide text-white sm:text-sm">
+                Our Purpose
+              </span>
+            </div>
 
-      </motion.div>
-    </section>
+            <h2 className="mt-5 font-serif text-3xl font-bold leading-tight text-[#4A0707] sm:text-4xl md:text-5xl">
+              Driven by Purpose{" "}
+              <span className="text-[#FF981B]">&amp; Principles</span>
+            </h2>
 
+            <p className="mt-4 font-poppins text-sm font-medium leading-7 text-[#705B4A] sm:text-base sm:leading-8">
+              Everything we do at Purvanchal Kulhad Chai is focused on building
+              long-term value — for customers, partners, and franchise owners.
+            </p>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-12 md:grid-cols-3 md:gap-6 lg:gap-8">
+            {purposePoints.map(({ icon: Icon, title, description }) => (
+              <article
+                key={title}
+                className="rounded-xl bg-[#4A0707] p-6 shadow-lg sm:p-7"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#FF981B]">
+                  <Icon
+                    size={22}
+                    className="text-[#4A0707]"
+                    strokeWidth={2.4}
+                  />
+                </div>
+
+                <h3 className="mt-5 font-serif text-2xl font-bold text-white">
+                  {title}
+                </h3>
+
+                <p className="mt-3 font-poppins text-sm font-medium leading-7 text-white/75">
+                  {description}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 flex justify-center sm:mt-12">
+            <button
+              type="button"
+              onClick={() => navigate("/contact")}
+              className="inline-flex min-h-[46px] items-center justify-center rounded-full border-2 border-[#4A0707] px-7 py-3 font-poppins text-sm font-bold text-[#4A0707] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#4A0707] hover:text-white"
+            >
+              Connect With Our Team
+            </button>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

@@ -10,9 +10,12 @@ import About from "./pages/About";
 import Products from "./pages/Products";
 import Franchise from "./pages/Franchise";
 import Contact from "./pages/Contact";
-
+import Services from "./pages/Services";
 import Gallery from "./pages/Gallary";
-
+import TermsConditions from "./pages/TermsConditions";
+import Privacy from "./pages/Privacy";
+import FloatingSocials from "./components/FloatingSocials";
+import FranchisePolicy from "./pages/FranchisePolicy";
 // Admin Pages
 import AdminLogin from "./pages/AdminLogin";
 import AdminFranchise from "./pages/AdminFranchise";
@@ -21,35 +24,35 @@ function App() {
   const [showPopup, setShowPopup] = useState(false);
   const [loading, setLoading] = useState(true);
   const changeLanguage = (lang) => {
-  const tryChange = () => {
-    const select = document.querySelector(".goog-te-combo");
+    const tryChange = () => {
+      const select = document.querySelector(".goog-te-combo");
 
-    if (select) {
-      select.value = lang;
-      select.dispatchEvent(new Event("change"));
+      if (select) {
+        select.value = lang;
+        select.dispatchEvent(new Event("change"));
 
-      // language select ke baad popup hide
-      setTimeout(() => {
-        setShowPopup(false);
-      }, 800);
+        // language select ke baad popup hide
+        setTimeout(() => {
+          setShowPopup(false);
+        }, 800);
 
-      return true;
-    }
+        return true;
+      }
 
-    return false;
+      return false;
+    };
+
+    let i = 0;
+
+    const timer = setInterval(() => {
+      i++;
+
+      if (tryChange() || i > 20) {
+        clearInterval(timer);
+      }
+
+    }, 300);
   };
-
-  let i = 0;
-
-  const timer = setInterval(() => {
-    i++;
-
-    if (tryChange() || i > 20) {
-      clearInterval(timer);
-    }
-
-  }, 300);
-};
   useEffect(() => {
     setShowPopup(true);
 
@@ -235,14 +238,18 @@ function App() {
 
                 </div>
               )}
+               <FloatingSocials />
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/franchise" element={<Franchise />} />
+                <Route path="/services" element={<Services />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/gallery" element={<Gallery />} />
-               
+                <Route path="/TermsConditions" element={<TermsConditions />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/franchise-policy" element={<FranchisePolicy />} />  
               </Routes>
 
               <Footer />
